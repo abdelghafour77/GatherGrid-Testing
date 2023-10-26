@@ -31,7 +31,7 @@ class CategoryServiceTest {
         category2.setDescription("Test Description");
 
         Mockito.when(categoryRepository.save(category1)).thenReturn(category2);
-        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Event does not exist");
+        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Category already exists");
     }
 
     @Test
@@ -45,7 +45,7 @@ class CategoryServiceTest {
         category2.setDescription("Test Description");
 
         Mockito.when(categoryRepository.save(category1)).thenReturn(category2);
-        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Event does not exist");
+        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Category without date");
     }
     @Test
     void givenCategory_whenCreateCategoryWithBlankTitle_thenReturnCategory() {
@@ -58,7 +58,7 @@ class CategoryServiceTest {
         category2.setDescription("Test Description");
 
         Mockito.when(categoryRepository.save(category1)).thenReturn(category2);
-        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Event does not exist");
+        assertThrows(IllegalArgumentException.class,() -> categoryService.createCategory(category1), "Category witt blank title");
     }
 
 
