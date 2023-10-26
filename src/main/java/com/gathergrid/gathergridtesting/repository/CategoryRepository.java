@@ -15,7 +15,7 @@ public class CategoryRepository {
         entityManagerFactory = Persistence.createEntityManagerFactory("persistence.gather_grid");
     }
 
-    public void save(Category category) {
+    public Category save(Category category) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
@@ -24,6 +24,7 @@ public class CategoryRepository {
         } finally {
             entityManager.close();
         }
+        return category;
     }
 
     public Category getById(Long id) {
